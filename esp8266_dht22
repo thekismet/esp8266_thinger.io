@@ -2,52 +2,34 @@
 
 #include <ESP8266WiFi.h>
 #include <ThingerESP8266.h>
-#include "DHT.h" 
+#include "DHT.h"
 
 #define USERNAME "xxxxxxxxxx"
 #define DEVICE_ID "xxxxxxxxxx"
 #define DEVICE_CREDENTIAL "xxxxxxxxxx"
- 
+
+// thinger.io config
 ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
- 
-// DHT 
-#define DHTPIN D4
+
+// DHT
+#define DHTPIN D2
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
- 
-uint32_t SLEEP_TIME = 140e6;
- 
-const char WiFi_ssid[]="xxxxxxxxxx";
-const char WiFi_password[]="xxxxxxxxxx";
 
-float h;
-float t;
- 
+#define SSID "xxxxxxxxxx"
+#define SSID_PASSWORD "xxxxxxxxxx"
+
 void setup() {
   dht.begin();
-  thing.add_wifi(WiFi_ssid, WiFi_password);
+  
+  thing.add_wifi(SSID, SSID_PASSWORD);
+  
   thing["dht22"] >> [](pson& out){
-    out["Temperature"] = t;
-    out["Humidity"] = h;
-    };
-  }
- 
+    out["humidity"] = dht.readHumidity();
+    out["temperature"] = dht.readTemperature();
+  };
+}
+
 void loop() {
   thing.handle();
- 
-  float t_NOverificada = dht.readTemperature();
-  float h_NOverificada = dht.readHumidity();
- 
-  if (isnan(t_NOverificada) || isnan(h_NOverificada)) {
-    return;
-  }
-  else{
-    t = t_NOverificada;
-    h = h_NOverificada;
-    thing.stream(thing["dht2222"]);
-  }
- 
-  if (millis() >= 10000){        
-    ESP.deepSleep(SLEEP_TIME, WAKE_RF_DEFAULT);
-    }
 }
