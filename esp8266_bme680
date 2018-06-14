@@ -30,7 +30,7 @@ ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 #define SSID_PASSWORD "xxx.xxx.xxx.xxx"
 
 void setup() {
-  // dht.begin();
+  
   Serial.begin(115200);
   while (!Serial);
   Serial.println(F("BME680"));
