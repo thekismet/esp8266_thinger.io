@@ -15,6 +15,7 @@
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
+// thinger.io config
 #define USERNAME "xxx.xxx.xxx.xxx"
 #define DEVICE_ID "xxx.xxx.xxx.xxx"
 #define DEVICE_CREDENTIAL "xxx.xxx.xxx.xxx"
@@ -23,9 +24,10 @@ Adafruit_BME680 bme; // I2C
 //Adafruit_BME680 bme(BME_CS); // hardware SPI
 //Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
 
-// thinger.io config
+// thinger.io
 ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
+// wifi config
 #define SSID "xxx.xxx.xxx.xxx"
 #define SSID_PASSWORD "xxx.xxx.xxx.xxx"
 
