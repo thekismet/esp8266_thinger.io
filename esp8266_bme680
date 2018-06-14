@@ -1,3 +1,6 @@
+#define THINGER_SERVER "xxx.xxx.xxx.xxx"
+#define THINGER_PORT 25200
+
 #include <ESP8266WiFi.h>
 #include <ThingerESP8266.h>
 #include <Wire.h>
@@ -12,7 +15,6 @@
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
-#define THINGER_SERVER "xxx.xxx.xxx.xxx"
 #define USERNAME "xxx.xxx.xxx.xxx"
 #define DEVICE_ID "xxx.xxx.xxx.xxx"
 #define DEVICE_CREDENTIAL "xxx.xxx.xxx.xxx"
