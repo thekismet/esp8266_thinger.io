@@ -25,11 +25,6 @@ Adafruit_BME680 bme; // I2C
 // thinger.io config
 ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
-// DHT
-// #define DHTPIN D2
-// #define DHTTYPE DHT22
-// DHT dht(DHTPIN, DHTTYPE);
-
 #define SSID "xxx.xxx.xxx.xxx"
 #define SSID_PASSWORD "xxx.xxx.xxx.xxx"
 
