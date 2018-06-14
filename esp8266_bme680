@@ -59,7 +59,7 @@ void setup() {
     out["temperature"] = (bme.readTemperature() - 2.3);
     out["pressure"] = (bme.readPressure() / 100.0);
     out["altitude"] = (bme.readAltitude(SEALEVELPRESSURE_HPA));
-    // out["air"] = (bme.gas_resistance() / 1000.0);
+    out["air"] = (bme.readGas() / 1000.0);
   };
 }
 
